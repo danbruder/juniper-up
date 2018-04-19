@@ -1,0 +1,11 @@
+{
+  "name": "juniperup",
+  "profile": "up",
+  "hooks": {
+    "build": [
+      "docker run -v ~/.cargo:/cargo_data -e CARGO_HOME=/cargo_data -v $PWD:/volume -w /volume -t clux/muslrust cargo build --release",
+      "cp target/x86_64-unknown-linux-musl/release/juniperup server"
+    ],
+    "clean": "rm server"
+  }
+}
